@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Elite Gaming PCs</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <style>
     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
       background: #0d1117;
-      color: #f5f5f5;
-      line-height: 1.6;
+      color: white;
     }
 
     header {
@@ -24,26 +19,16 @@
       padding: 40px 20px;
     }
 
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      color: #d1d5db;
-    }
-
     nav {
       background: #111827;
-      text-align: center;
       padding: 15px;
+      text-align: center;
     }
 
     nav a {
-      color: #f5f5f5;
-      text-decoration: none;
+      color: white;
       margin: 0 15px;
+      text-decoration: none;
       font-weight: bold;
     }
 
@@ -57,55 +42,32 @@
       background: #1f2937;
     }
 
-    .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      color: #d1d5db;
-    }
-
     .btn {
-      display: inline-block;
       background: #2563eb;
-      color: white;
       padding: 12px 24px;
       border-radius: 8px;
+      color: white;
       text-decoration: none;
       font-weight: bold;
     }
 
-    .btn:hover {
-      background: #3b82f6;
-    }
-
     .section {
-      max-width: 1150px;
+      max-width: 1100px;
       margin: auto;
       padding: 50px 20px;
-    }
-
-    .section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
     }
 
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
+      gap: 20px;
     }
 
     .card {
       background: #111827;
-      border-radius: 12px;
       padding: 20px;
+      border-radius: 10px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .card img {
@@ -113,123 +75,143 @@
       height: 180px;
       object-fit: cover;
       border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #d1d5db;
-      margin-bottom: 10px;
-      font-size: 0.95rem;
     }
 
     .price {
       color: #60a5fa;
-      font-size: 1.2rem;
       font-weight: bold;
       margin-top: 10px;
     }
 
-    .about, .contact {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      color: #d1d5db;
+    select {
+      padding: 8px;
+      margin: 5px;
+      width: 60%;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     footer {
-      background: #111827;
       text-align: center;
       padding: 20px;
-      color: #9ca3af;
+      background: #111827;
       margin-top: 30px;
+      color: #aaa;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Elite Gaming PCs</h1>
-    <p>High-performance gaming desktops built for speed, power, and next-level gameplay.</p>
-  </header>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#products">Gaming PCs</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header>
+  <h1>Elite Gaming PCs</h1>
+  <p>Build. Customize. Dominate.</p>
+</header>
 
-  <section class="hero" id="home">
-    <h2>Power Your Game</h2>
-    <p>
-      Explore custom gaming PCs designed for competitive players, streamers, and anyone who wants
-      top-tier performance for modern games.
-    </p>
-    <a href="#products" class="btn">Shop PCs</a>
-  </section>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#products">Gaming PCs</a>
+  <a href="#builder">PC Builder</a>
+</nav>
 
-  <section class="section" id="products">
-    <h2>Featured Gaming PCs</h2>
-    <div class="products">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1587202372616-b43abea06c2a?auto=format&fit=crop&w=900&q=80" alt="Starter gaming PC">
-        <h3>Starter Build</h3>
-        <p>Perfect for beginners who want smooth 1080p gaming and reliable everyday performance.</p>
-        <p><strong>Specs:</strong> Ryzen 5, RTX 4060, 16GB RAM, 1TB SSD</p>
-        <div class="price">$999</div>
-      </div>
+<section class="hero" id="home">
+  <h2>Power Your Game</h2>
+  <p>High-performance gaming desktops for every level of player.</p>
+  <a href="#products" class="btn">Shop Now</a>
+</section>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=900&q=80" alt="Pro gaming PC">
-        <h3>Pro Build</h3>
-        <p>Built for serious gamers who want high FPS, faster load times, and stronger multitasking.</p>
-        <p><strong>Specs:</strong> Intel i7, RTX 4070 Super, 32GB RAM, 2TB SSD</p>
-        <div class="price">$1,699</div>
-      </div>
+<section class="section" id="products">
+  <h2>Featured Gaming PCs</h2>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=900&q=80" alt="Streaming gaming PC">
-        <h3>Streamer Build</h3>
-        <p>Ideal for gaming, streaming, and content creation with powerful graphics and processing.</p>
-        <p><strong>Specs:</strong> Ryzen 7, RTX 4080, 32GB RAM, 2TB SSD</p>
-        <div class="price">$2,199</div>
-      </div>
+  <div class="products">
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=900&q=80" alt="Ultimate gaming PC">
-        <h3>Ultimate Build</h3>
-        <p>Top-tier performance for competitive gaming, 4K visuals, and advanced workstation tasks.</p>
-        <p><strong>Specs:</strong> Intel i9, RTX 4090, 64GB RAM, 4TB SSD</p>
-        <div class="price">$3,499</div>
-      </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1587202372616-b43abea06c2a">
+      <h3>Starter Build</h3>
+      <p>Ryzen 5 • RTX 4060 • 16GB RAM</p>
+      <div class="price">$999</div>
     </div>
-  </section>
 
-  <section class="section" id="about">
-    <h2>About Elite Gaming PCs</h2>
-    <div class="about">
-      <p>
-        Elite Gaming PCs is a sample website created to showcase gaming desktop systems and demonstrate
-        how a static website can be built and deployed through AWS. The site highlights different PC builds,
-        pricing, and specifications for gamers with different needs and budgets.
-      </p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5">
+      <h3>Pro Build</h3>
+      <p>Intel i7 • RTX 4070 • 32GB RAM</p>
+      <div class="price">$1699</div>
     </div>
-  </section>
 
-  <section class="section" id="contact">
-    <h2>Contact</h2>
-    <div class="contact">
-      <p>Email: elitegamingpcs@example.com</p>
-      <p>Phone: (555) 123-4567</p>
-      <p>Location: Radford University AWS Project Demo</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b">
+      <h3>Streamer Build</h3>
+      <p>Ryzen 7 • RTX 4080 • 32GB RAM</p>
+      <div class="price">$2199</div>
     </div>
-  </section>
 
-  <footer>
-    <p>&copy; 2026 Elite Gaming PCs | AWS Static Website Project</p>
-  </footer>
+  </div>
+</section>
+
+<!-- 🔥 NEW PC BUILDER SECTION -->
+<section class="section" id="builder">
+  <h2>Build Your Own PC</h2>
+
+  <div style="text-align:center;">
+
+    <p>Select your components and check compatibility:</p>
+
+    <select id="cpu">
+      <option value="intel">Intel i7</option>
+      <option value="amd">Ryzen 7</option>
+    </select><br>
+
+    <select id="motherboard">
+      <option value="intel">Intel Motherboard</option>
+      <option value="amd">AMD Motherboard</option>
+    </select><br>
+
+    <select id="gpu">
+      <option>RTX 4060</option>
+      <option>RTX 4070</option>
+      <option>RTX 4090</option>
+    </select><br>
+
+    <select id="ram">
+      <option>16GB</option>
+      <option>32GB</option>
+      <option>64GB</option>
+    </select><br><br>
+
+    <button onclick="checkBuild()">Check Compatibility</button>
+
+    <div id="result" style="margin-top:20px; font-weight:bold;"></div>
+
+  </div>
+</section>
+
+<footer>
+  <p>Created by Edwin Campos | AWS Project</p>
+</footer>
+
+<script>
+function checkBuild() {
+  const cpu = document.getElementById("cpu").value;
+  const motherboard = document.getElementById("motherboard").value;
+  const result = document.getElementById("result");
+
+  if (cpu === motherboard) {
+    result.style.color = "lightgreen";
+    result.innerHTML = "✅ Compatible Build!";
+  } else {
+    result.style.color = "red";
+    result.innerHTML = "❌ Not Compatible - Check CPU & Motherboard";
+  }
+}
+</script>
+
 </body>
 </html>
