@@ -1,99 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Atlanta FaZe - Esports Merch</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elite Gaming PCs</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      background: #0b0b0b;
-      color: white;
+    }
+
+    body {
+      background: #0d1117;
+      color: #f5f5f5;
+      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(90deg, #ff0000, #000);
-      padding: 30px;
+      background: linear-gradient(90deg, #111827, #2563eb);
       text-align: center;
+      padding: 40px 20px;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #d1d5db;
     }
 
     nav {
-      background: #111;
-      padding: 15px;
+      background: #111827;
       text-align: center;
+      padding: 15px;
     }
 
     nav a {
-      color: white;
-      margin: 0 15px;
+      color: #f5f5f5;
       text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
     }
 
     nav a:hover {
-      color: red;
+      color: #60a5fa;
     }
 
     .hero {
-      padding: 60px 20px;
       text-align: center;
-      background: url("https://images.unsplash.com/photo-1605902711622-cfb43c44367f?auto=format&fit=crop&w=1400&q=80") no-repeat center/cover;
+      padding: 60px 20px;
+      background: #1f2937;
     }
 
     .hero h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      color: #d1d5db;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #3b82f6;
     }
 
     .section {
-      padding: 50px 20px;
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
+      padding: 50px 20px;
     }
 
     .section h2 {
       text-align: center;
       margin-bottom: 30px;
-    }
-
-    .team-info {
-      text-align: center;
-      color: #ccc;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .players {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .player {
-      background: #111;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
+      font-size: 2rem;
     }
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
     }
 
     .card {
-      background: #111;
+      background: #111827;
+      border-radius: 12px;
       padding: 20px;
-      border-radius: 10px;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .card img {
@@ -104,114 +116,120 @@
       margin-bottom: 15px;
     }
 
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #d1d5db;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
     .price {
-      color: red;
+      color: #60a5fa;
+      font-size: 1.2rem;
       font-weight: bold;
       margin-top: 10px;
     }
 
+    .about, .contact {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      color: #d1d5db;
+    }
+
     footer {
+      background: #111827;
       text-align: center;
       padding: 20px;
-      background: #111;
-      color: #888;
+      color: #9ca3af;
       margin-top: 30px;
     }
   </style>
 </head>
-
 <body>
+  <header>
+    <h1>Elite Gaming PCs</h1>
+    <p>High-performance gaming desktops built for speed, power, and next-level gameplay.</p>
+  </header>
 
-<header>
-  <h1>Atlanta FaZe</h1>
-  <p>Call of Duty League Champions</p>
-</header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Gaming PCs</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#team">Team</a>
-  <a href="#shop">Merch</a>
-</nav>
-
-<section class="hero">
-  <h2>Dominate the Competition</h2>
-  <p>Official-inspired esports merch and team showcase</p>
-</section>
-
-<section class="section" id="about">
-  <h2>About the Team</h2>
-  <div class="team-info">
+  <section class="hero" id="home">
+    <h2>Power Your Game</h2>
     <p>
-      Atlanta FaZe is one of the top teams in the Call of Duty League (CDL), known for its
-      aggressive playstyle and championship-level performance. The team represents a strong
-      presence in esports and has built a global fanbase.
+      Explore custom gaming PCs designed for competitive players, streamers, and anyone who wants
+      top-tier performance for modern games.
     </p>
-  </div>
-</section>
+    <a href="#products" class="btn">Shop PCs</a>
+  </section>
 
-<section class="section" id="team">
-  <h2>Roster</h2>
-  <div class="players">
-    <div class="player">
-      <h3>Simp</h3>
-      <p>SMG Slayer</p>
+  <section class="section" id="products">
+    <h2>Featured Gaming PCs</h2>
+    <div class="products">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1587202372616-b43abea06c2a?auto=format&fit=crop&w=900&q=80" alt="Starter gaming PC">
+        <h3>Starter Build</h3>
+        <p>Perfect for beginners who want smooth 1080p gaming and reliable everyday performance.</p>
+        <p><strong>Specs:</strong> Ryzen 5, RTX 4060, 16GB RAM, 1TB SSD</p>
+        <div class="price">$999</div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=900&q=80" alt="Pro gaming PC">
+        <h3>Pro Build</h3>
+        <p>Built for serious gamers who want high FPS, faster load times, and stronger multitasking.</p>
+        <p><strong>Specs:</strong> Intel i7, RTX 4070 Super, 32GB RAM, 2TB SSD</p>
+        <div class="price">$1,699</div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=900&q=80" alt="Streaming gaming PC">
+        <h3>Streamer Build</h3>
+        <p>Ideal for gaming, streaming, and content creation with powerful graphics and processing.</p>
+        <p><strong>Specs:</strong> Ryzen 7, RTX 4080, 32GB RAM, 2TB SSD</p>
+        <div class="price">$2,199</div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?auto=format&fit=crop&w=900&q=80" alt="Ultimate gaming PC">
+        <h3>Ultimate Build</h3>
+        <p>Top-tier performance for competitive gaming, 4K visuals, and advanced workstation tasks.</p>
+        <p><strong>Specs:</strong> Intel i9, RTX 4090, 64GB RAM, 4TB SSD</p>
+        <div class="price">$3,499</div>
+      </div>
     </div>
+  </section>
 
-    <div class="player">
-      <h3>aBeZy</h3>
-      <p>Entry Player</p>
+  <section class="section" id="about">
+    <h2>About Elite Gaming PCs</h2>
+    <div class="about">
+      <p>
+        Elite Gaming PCs is a sample website created to showcase gaming desktop systems and demonstrate
+        how a static website can be built and deployed through AWS. The site highlights different PC builds,
+        pricing, and specifications for gamers with different needs and budgets.
+      </p>
     </div>
+  </section>
 
-    <div class="player">
-      <h3>Cellium</h3>
-      <p>Main AR</p>
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>Email: elitegamingpcs@example.com</p>
+      <p>Phone: (555) 123-4567</p>
+      <p>Location: Radford University AWS Project Demo</p>
     </div>
+  </section>
 
-    <div class="player">
-      <h3>Drazah</h3>
-      <p>Flex Player</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="shop">
-  <h2>Team Merch</h2>
-  <div class="products">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80">
-      <h3>FaZe Hoodie</h3>
-      <p>Premium esports hoodie for fans</p>
-      <div class="price">$59.99</div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80">
-      <h3>Team Jersey</h3>
-      <p>Official-style CDL jersey</p>
-      <div class="price">$49.99</div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80">
-      <h3>Gaming Mousepad</h3>
-      <p>Large performance mousepad</p>
-      <div class="price">$29.99</div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80">
-      <h3>FaZe Cap</h3>
-      <p>Stylish esports snapback</p>
-      <div class="price">$24.99</div>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <p>Created by Edwin Campos | AWS Project</p>
-</footer>
-
+  <footer>
+    <p>&copy; 2026 Elite Gaming PCs | AWS Static Website Project</p>
+  </footer>
 </body>
-</html>g
+</html>
