@@ -59,7 +59,7 @@
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
 
@@ -81,6 +81,12 @@
       color: #60a5fa;
       font-weight: bold;
       margin-top: 10px;
+    }
+
+    ul {
+      text-align: left;
+      font-size: 14px;
+      padding-left: 20px;
     }
 
     select {
@@ -132,31 +138,64 @@
 
   <div class="products">
 
+    <!-- Starter Build -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1587202372616-b43abea06c2a">
       <h3>Starter Build</h3>
-      <p>Ryzen 5 • RTX 4060 • 16GB RAM</p>
+      <ul>
+        <li>CPU: AMD Ryzen 5 5600</li>
+        <li>GPU: NVIDIA RTX 4060</li>
+        <li>RAM: 16GB DDR4</li>
+        <li>Storage: 1TB SSD</li>
+        <li>Motherboard: B550</li>
+        <li>Power Supply: 650W Bronze</li>
+        <li>Cooling: Air Cooler</li>
+        <li>Case: Mid Tower RGB</li>
+        <li>OS: Windows 11</li>
+      </ul>
       <div class="price">$999</div>
     </div>
 
+    <!-- Pro Build -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5">
       <h3>Pro Build</h3>
-      <p>Intel i7 • RTX 4070 • 32GB RAM</p>
+      <ul>
+        <li>CPU: Intel i7-12700K</li>
+        <li>GPU: NVIDIA RTX 4070</li>
+        <li>RAM: 32GB DDR5</li>
+        <li>Storage: 1TB NVMe SSD</li>
+        <li>Motherboard: Z690</li>
+        <li>Power Supply: 750W Gold</li>
+        <li>Cooling: Liquid Cooler</li>
+        <li>Case: High Airflow RGB</li>
+        <li>OS: Windows 11</li>
+      </ul>
       <div class="price">$1699</div>
     </div>
 
+    <!-- Streamer Build -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b">
       <h3>Streamer Build</h3>
-      <p>Ryzen 7 • RTX 4080 • 32GB RAM</p>
+      <ul>
+        <li>CPU: AMD Ryzen 7 5800X</li>
+        <li>GPU: NVIDIA RTX 4080</li>
+        <li>RAM: 32GB DDR5</li>
+        <li>Storage: 2TB NVMe SSD</li>
+        <li>Motherboard: X570</li>
+        <li>Power Supply: 850W Gold</li>
+        <li>Cooling: Liquid Cooling</li>
+        <li>Case: Full Tower RGB</li>
+        <li>OS: Windows 11</li>
+      </ul>
       <div class="price">$2199</div>
     </div>
 
   </div>
 </section>
 
-<!-- 🔥 NEW PC BUILDER SECTION -->
+<!-- PC BUILDER -->
 <section class="section" id="builder">
   <h2>Build Your Own PC</h2>
 
@@ -174,16 +213,16 @@
       <option value="amd">AMD Motherboard</option>
     </select><br>
 
-    <select id="gpu">
+    <select>
       <option>RTX 4060</option>
       <option>RTX 4070</option>
       <option>RTX 4090</option>
     </select><br>
 
-    <select id="ram">
-      <option>16GB</option>
-      <option>32GB</option>
-      <option>64GB</option>
+    <select>
+      <option>16GB RAM</option>
+      <option>32GB RAM</option>
+      <option>64GB RAM</option>
     </select><br><br>
 
     <button onclick="checkBuild()">Check Compatibility</button>
