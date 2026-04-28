@@ -1,242 +1,779 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Elite Gaming PCs</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elite Gaming PCs</title>
 
-<style>
-body {
-  font-family: Arial;
-  margin: 0;
-  background: #0d1117;
-  color: white;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-/* NAVBAR */
-nav {
-  background: #111827;
-  padding: 15px;
-  text-align: center;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d1117;
+      color: white;
+    }
 
-nav a {
-  margin: 10px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-}
+    nav {
+      background: #111827;
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #1f2937;
+    }
 
-/* PAGES */
-.page { display: none; padding: 20px; }
-.active { display: block; }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #60a5fa;
+    }
 
-/* BUTTONS */
-button {
-  background: #2563eb;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
+    .nav-links a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-/* CARDS */
-.card {
-  background: #111827;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 10px;
-}
+    .nav-links a:hover {
+      color: #60a5fa;
+    }
 
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-}
+    .page {
+      display: none;
+      padding: 40px;
+      min-height: 85vh;
+    }
 
-/* TABLE */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+    .active {
+      display: block;
+    }
 
-td {
-  padding: 10px;
-  border-bottom: 1px solid #333;
-}
-</style>
+    .hero {
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background: linear-gradient(135deg, #111827, #1e3a8a, #0d1117);
+      padding: 60px;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .hero-text {
+      max-width: 560px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+
+    .hero img {
+      width: 480px;
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
+    }
+
+    button, .btn {
+      background: #2563eb;
+      color: white;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    button:hover, .btn:hover {
+      background: #1d4ed8;
+    }
+
+    h2 {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      margin-top: 40px;
+      color: #f9fafb;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #111827;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 0 18px rgba(37, 99, 235, 0.18);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: #60a5fa;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .muted {
+      color: #9ca3af;
+    }
+
+    .products-menu {
+      background: #1f2937;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .category {
+      background: #111827;
+      border: 1px solid #374151;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .category:hover {
+      background: #1e3a8a;
+    }
+
+    .builder-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #111827;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .builder-table th,
+    .builder-table td {
+      padding: 16px;
+      border-bottom: 1px solid #374151;
+      text-align: left;
+    }
+
+    .builder-table th {
+      background: #1f2937;
+      color: #93c5fd;
+    }
+
+    select {
+      padding: 10px;
+      width: 100%;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .summary-box {
+      background: #1f2937;
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 25px;
+    }
+
+    .status-good {
+      color: lightgreen;
+      font-weight: bold;
+    }
+
+    .status-bad {
+      color: #f87171;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 12px;
+      width: 260px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111827;
+      color: #9ca3af;
+      border-top: 1px solid #1f2937;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        padding: 35px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
-<a onclick="showPage('home')">Home</a>
-<a onclick="showPage('builder')">Builder</a>
-<a onclick="showPage('guides')">Guides</a>
-<a onclick="showPage('builds')">Builds</a>
-<a onclick="showPage('login')">Login</a>
-</nav>
+  <nav>
+    <div class="logo">Elite Gaming PCs</div>
+    <div class="nav-links">
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('products')">Products</a>
+      <a onclick="showPage('builder')">Builder</a>
+      <a onclick="showPage('guides')">Guides</a>
+      <a onclick="showPage('builds')">Completed Builds</a>
+      <a onclick="showPage('saved')">Saved Build</a>
+      <a onclick="showPage('aws')">AWS</a>
+      <a onclick="showPage('login')">Login</a>
+    </div>
+  </nav>
 
-<!-- HOME -->
-<div id="home" class="page active">
-<h1>Elite Gaming PCs</h1>
-<p>Build. Customize. Dominate.</p>
-<button onclick="showPage('builder')">Start Your Build</button>
-</div>
+  <!-- HOME -->
+  <div id="home" class="page active" style="padding:0;">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Pick Parts. Build Your PC. Save Your Setup.</h1>
+        <p>
+          Elite Gaming PCs helps gamers explore parts, compare build ideas, check basic compatibility,
+          estimate pricing, and save a custom PC build.
+        </p>
+        <button onclick="showPage('builder')">Start Your Build</button>
+        <button onclick="showPage('guides')">View Build Guides</button>
+      </div>
 
-<!-- LOGIN -->
-<div id="login" class="page">
-<h2>Login</h2>
-<input id="user" placeholder="Username"><br><br>
-<input id="pass" placeholder="Password"><br><br>
-<button onclick="login()">Login</button>
-<p id="loginMsg"></p>
-</div>
+      <img src="https://images.unsplash.com/photo-1587202372616-b43abea06c2a" alt="Gaming PC">
+    </section>
 
-<!-- BUILDER -->
-<div id="builder" class="page">
-<h2>PC Builder</h2>
+    <div class="page active">
+      <h2 class="section-title">Featured Gaming PCs</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5" alt="Starter PC">
+          <h3>Starter Build</h3>
+          <p class="muted">Ryzen 5 • RTX 4060 • 16GB RAM • 1TB SSD</p>
+          <p class="price">$999</p>
+        </div>
 
-<table>
-<tr><td>CPU</td><td>
-<select onchange="updateTotal()">
-<option value="200">Ryzen 5 - $200</option>
-<option value="350">Ryzen 7 - $350</option>
-<option value="500">Intel i9 - $500</option>
-</select></td></tr>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b" alt="Pro PC">
+          <h3>Pro Build</h3>
+          <p class="muted">Intel i7 • RTX 4070 • 32GB RAM • NVMe SSD</p>
+          <p class="price">$1,699</p>
+        </div>
 
-<tr><td>CPU Cooler</td><td>
-<select onchange="updateTotal()">
-<option value="50">Air Cooler - $50</option>
-<option value="120">Liquid Cooler - $120</option>
-</select></td></tr>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1624705002806-5d72df19c3ad" alt="Streamer PC">
+          <h3>Streamer Build</h3>
+          <p class="muted">Ryzen 7 • RTX 4080 • 32GB RAM • Liquid Cooling</p>
+          <p class="price">$2,199</p>
+        </div>
+      </div>
 
-<tr><td>Motherboard</td><td>
-<select onchange="updateTotal()">
-<option value="150">B550 - $150</option>
-<option value="250">Z690 - $250</option>
-</select></td></tr>
+      <h2 class="section-title">Why Use This Builder?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Compatibility Check</h3>
+          <p class="muted">Checks if the CPU and motherboard platform match.</p>
+        </div>
+        <div class="card">
+          <h3>Price Estimate</h3>
+          <p class="muted">Calculates a total based on selected parts.</p>
+        </div>
+        <div class="card">
+          <h3>Save Your Build</h3>
+          <p class="muted">Login and save a build using browser storage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<tr><td>Memory</td><td>
-<select onchange="updateTotal()">
-<option value="80">16GB - $80</option>
-<option value="150">32GB - $150</option>
-</select></td></tr>
+  <!-- PRODUCTS -->
+  <div id="products" class="page">
+    <h2>Products</h2>
+    <p class="muted">Browse major PC part categories.</p>
 
-<tr><td>Storage</td><td>
-<select onchange="updateTotal()">
-<option value="100">1TB SSD - $100</option>
-<option value="200">2TB SSD - $200</option>
-</select></td></tr>
+    <div class="products-menu">
+      <div class="category-grid">
+        <div class="category">CPUs</div>
+        <div class="category">CPU Coolers</div>
+        <div class="category">Motherboards</div>
+        <div class="category">Memory</div>
+        <div class="category">Storage</div>
+        <div class="category">Video Cards</div>
+        <div class="category">Power Supplies</div>
+        <div class="category">Cases</div>
+        <div class="category">Monitors</div>
+        <div class="category">Keyboards</div>
+        <div class="category">Mice</div>
+        <div class="category">Operating Systems</div>
+      </div>
+    </div>
 
-<tr><td>GPU</td><td>
-<select onchange="updateTotal()">
-<option value="400">RTX 4060 - $400</option>
-<option value="700">RTX 4070 - $700</option>
-<option value="1200">RTX 4090 - $1200</option>
-</select></td></tr>
+    <h2>Popular Parts</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704" alt="GPU">
+        <h3>NVIDIA RTX 4070</h3>
+        <p class="muted">Great for 1440p gaming and streaming.</p>
+        <p class="price">$599</p>
+      </div>
 
-<tr><td>Case</td><td>
-<select onchange="updateTotal()">
-<option value="100">Mid Tower - $100</option>
-<option value="200">Full Tower - $200</option>
-</select></td></tr>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Motherboard">
+        <h3>Gaming Motherboard</h3>
+        <p class="muted">Supports modern CPUs, RAM, and storage.</p>
+        <p class="price">$180</p>
+      </div>
 
-<tr><td>Power Supply</td><td>
-<select onchange="updateTotal()">
-<option value="100">650W - $100</option>
-<option value="150">850W - $150</option>
-</select></td></tr>
-</table>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1562976540-1502c2145186" alt="Storage">
+        <h3>NVMe SSD</h3>
+        <p class="muted">Fast loading for games and applications.</p>
+        <p class="price">$130</p>
+      </div>
+    </div>
+  </div>
 
-<h3>Total: $<span id="total">0</span></h3>
+  <!-- BUILDER -->
+  <div id="builder" class="page">
+    <h2>PC Builder</h2>
+    <p class="muted">Select each part to build your own custom PC.</p>
 
-<button onclick="saveBuild()">Save Build</button>
-<p id="saveMsg"></p>
-</div>
+    <table class="builder-table">
+      <tr>
+        <th>Component</th>
+        <th>Selection</th>
+        <th>Price</th>
+      </tr>
 
-<!-- GUIDES -->
-<div id="guides" class="page">
-<h2>Build Guides</h2>
+      <tr>
+        <td>CPU</td>
+        <td>
+          <select id="cpu" onchange="updateBuild()">
+            <option value="amd" data-price="200" data-watts="65">AMD Ryzen 5 5600</option>
+            <option value="amd" data-price="350" data-watts="105">AMD Ryzen 7 5800X</option>
+            <option value="intel" data-price="320" data-watts="125">Intel i7-12700K</option>
+            <option value="intel" data-price="500" data-watts="150">Intel i9-13900K</option>
+          </select>
+        </td>
+        <td id="cpuPrice">$200</td>
+      </tr>
 
-<div class="grid">
-<div class="card">
-<h3>Entry Level AMD</h3>
-<p>$1000</p>
-</div>
+      <tr>
+        <td>CPU Cooler</td>
+        <td>
+          <select id="cooler" onchange="updateBuild()">
+            <option data-price="50" data-watts="0">Air Cooler</option>
+            <option data-price="120" data-watts="0">Liquid Cooler</option>
+            <option data-price="180" data-watts="0">Premium AIO Liquid Cooler</option>
+          </select>
+        </td>
+        <td id="coolerPrice">$50</td>
+      </tr>
 
-<div class="card">
-<h3>Entry Level Intel</h3>
-<p>$1100</p>
-</div>
+      <tr>
+        <td>Motherboard</td>
+        <td>
+          <select id="motherboard" onchange="updateBuild()">
+            <option value="amd" data-price="150" data-watts="40">AMD B550 Motherboard</option>
+            <option value="amd" data-price="240" data-watts="50">AMD X570 Motherboard</option>
+            <option value="intel" data-price="180" data-watts="45">Intel B660 Motherboard</option>
+            <option value="intel" data-price="260" data-watts="55">Intel Z690 Motherboard</option>
+          </select>
+        </td>
+        <td id="motherboardPrice">$150</td>
+      </tr>
 
-<div class="card">
-<h3>Enthusiast AMD</h3>
-<p>$1900</p>
-</div>
+      <tr>
+        <td>Memory</td>
+        <td>
+          <select id="ram" onchange="updateBuild()">
+            <option data-price="60" data-watts="10">16GB DDR4</option>
+            <option data-price="110" data-watts="12">32GB DDR5</option>
+            <option data-price="210" data-watts="15">64GB DDR5</option>
+          </select>
+        </td>
+        <td id="ramPrice">$60</td>
+      </tr>
 
-<div class="card">
-<h3>Glorious AMD</h3>
-<p>$5400</p>
-</div>
-</div>
-</div>
+      <tr>
+        <td>Storage</td>
+        <td>
+          <select id="storage" onchange="updateBuild()">
+            <option data-price="70" data-watts="5">1TB SSD</option>
+            <option data-price="130" data-watts="7">2TB NVMe SSD</option>
+            <option data-price="250" data-watts="10">4TB NVMe SSD</option>
+          </select>
+        </td>
+        <td id="storagePrice">$70</td>
+      </tr>
 
-<!-- BUILDS -->
-<div id="builds" class="page">
-<h2>Completed Builds</h2>
+      <tr>
+        <td>Video Card</td>
+        <td>
+          <select id="gpu" onchange="updateBuild()">
+            <option data-price="299" data-watts="160">NVIDIA RTX 4060</option>
+            <option data-price="599" data-watts="220">NVIDIA RTX 4070</option>
+            <option data-price="999" data-watts="320">NVIDIA RTX 4080</option>
+            <option data-price="1599" data-watts="450">NVIDIA RTX 4090</option>
+          </select>
+        </td>
+        <td id="gpuPrice">$299</td>
+      </tr>
 
-<div class="grid">
-<div class="card">
-<h3>Silent Beast</h3>
-<p>$4600</p>
-</div>
+      <tr>
+        <td>Case</td>
+        <td>
+          <select id="casePart" onchange="updateBuild()">
+            <option data-price="100" data-watts="0">Mid Tower RGB Case</option>
+            <option data-price="160" data-watts="0">High Airflow Case</option>
+            <option data-price="220" data-watts="0">Full Tower RGB Case</option>
+          </select>
+        </td>
+        <td id="casePartPrice">$100</td>
+      </tr>
 
-<div class="card">
-<h3>Little Upgrade</h3>
-<p>$865</p>
-</div>
-</div>
-</div>
+      <tr>
+        <td>Power Supply</td>
+        <td>
+          <select id="psu" onchange="updateBuild()">
+            <option data-price="80" data-watts="650">650W Bronze PSU</option>
+            <option data-price="120" data-watts="750">750W Gold PSU</option>
+            <option data-price="160" data-watts="850">850W Gold PSU</option>
+            <option data-price="220" data-watts="1000">1000W Platinum PSU</option>
+          </select>
+        </td>
+        <td id="psuPrice">$80</td>
+      </tr>
 
-<script>
-let loggedIn = false;
+      <tr>
+        <td>Operating System</td>
+        <td>
+          <select id="os" onchange="updateBuild()">
+            <option data-price="120" data-watts="0">Windows 11 Home</option>
+            <option data-price="180" data-watts="0">Windows 11 Pro</option>
+            <option data-price="0" data-watts="0">Linux</option>
+          </select>
+        </td>
+        <td id="osPrice">$120</td>
+      </tr>
+    </table>
 
-function showPage(page){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(page).classList.add('active');
-}
+    <div class="summary-box">
+      <h3>Build Summary</h3>
+      <p id="compatibility"></p>
+      <p><strong>Estimated Wattage:</strong> <span id="watts">0</span>W</p>
+      <p><strong>Total Price:</strong> $<span id="total">0</span></p>
+      <p><strong>Recommended Tier:</strong> <span id="tier">Starter Build</span></p>
 
-function login(){
-let u=document.getElementById('user').value;
-let p=document.getElementById('pass').value;
+      <button onclick="saveBuild()">Save Build</button>
+      <button onclick="clearBuild()">Clear Saved Build</button>
+      <p id="saveMsg"></p>
+    </div>
+  </div>
 
-if(u==="student" && p==="student"){
-loggedIn=true;
-document.getElementById('loginMsg').innerText="Login successful!";
-showPage('builder');
-}else{
-document.getElementById('loginMsg').innerText="Wrong login";
-}
-}
+  <!-- GUIDES -->
+  <div id="guides" class="page">
+    <h2>Build Guides</h2>
+    <p class="muted">Example build guides for different budgets and player types.</p>
 
-function updateTotal(){
-let selects=document.querySelectorAll("#builder select");
-let total=0;
-selects.forEach(s=> total+=parseInt(s.value));
-document.getElementById("total").innerText=total;
-}
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1587202372616-b43abea06c2a" alt="Entry build">
+        <h3>Entry Level AMD Gaming Build</h3>
+        <p class="muted">Ryzen 5 • RTX 4060 • 16GB RAM</p>
+        <p class="price">$1,004.86</p>
+      </div>
 
-function saveBuild(){
-if(!loggedIn){
-document.getElementById("saveMsg").innerText="Login first!";
-return;
-}
-localStorage.setItem("build", document.getElementById("total").innerText);
-document.getElementById("saveMsg").innerText="Build Saved!";
-}
-</script>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5" alt="Intel build">
+        <h3>Entry Level Intel Gaming Build</h3>
+        <p class="muted">Intel i5 • RTX 4060 • 16GB RAM</p>
+        <p class="price">$1,116.93</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b" alt="Pro AMD build">
+        <h3>Excellent AMD Gaming/Streaming Build</h3>
+        <p class="muted">Ryzen 7 • RTX 4070 • 32GB RAM</p>
+        <p class="price">$1,648.82</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1624705002806-5d72df19c3ad" alt="High end build">
+        <h3>Glorious AMD Gaming Build</h3>
+        <p class="muted">Ryzen 9 • RTX 4090 • 64GB RAM</p>
+        <p class="price">$5,421.40</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPLETED BUILDS -->
+  <div id="builds" class="page">
+    <h2>Completed Builds</h2>
+    <p class="muted">Example completed builds inspired by user-created PC setups.</p>
+
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2" alt="Completed build">
+        <h3>Silent Noctua Beast</h3>
+        <p class="muted">Quiet gaming PC with strong airflow.</p>
+        <p class="price">$4,658.72</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5" alt="Completed build">
+        <h3>Little Upgrade</h3>
+        <p class="muted">Budget upgrade build for casual gaming.</p>
+        <p class="price">$865.86</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1587202372616-b43abea06c2a" alt="Completed build">
+        <h3>RGB Showcase Build</h3>
+        <p class="muted">Performance-focused build with RGB styling.</p>
+        <p class="price">$2,499.99</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAVED BUILD -->
+  <div id="saved" class="page">
+    <h2>Saved Build</h2>
+    <div class="summary-box" id="savedBuildBox">
+      <p>No saved build yet. Login and save a build from the Builder page.</p>
+    </div>
+  </div>
+
+  <!-- AWS -->
+  <div id="aws" class="page">
+    <h2>AWS Improvements</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>S3 Security</h3>
+        <p class="muted">
+          Public access was blocked on the S3 bucket to improve cloud security and follow AWS best practices.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>AWS Budget Alert</h3>
+        <p class="muted">
+          A monthly AWS Budget was created to monitor spending and help prevent unexpected charges.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Amplify Deployment</h3>
+        <p class="muted">
+          The website is deployed through AWS Amplify and connected to the project repository.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN -->
+  <div id="login" class="page">
+    <h2>Login</h2>
+    <p class="muted">Demo login: username <strong>student</strong>, password <strong>student</strong></p>
+
+    <input id="username" placeholder="Username"><br>
+    <input id="password" type="password" placeholder="Password"><br>
+
+    <button onclick="login()">Login</button>
+    <p id="loginMsg"></p>
+  </div>
+
+  <footer>
+    <p>Created by Edwin Campos | AWS Project | Elite Gaming PCs</p>
+  </footer>
+
+  <script>
+    let loggedIn = false;
+
+    function showPage(pageId) {
+      document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+      document.getElementById(pageId).classList.add("active");
+
+      if (pageId === "saved") {
+        loadSavedBuild();
+      }
+    }
+
+    function getSelectedData(id, dataName) {
+      const element = document.getElementById(id);
+      return Number(element.options[element.selectedIndex].dataset[dataName]);
+    }
+
+    function getSelectedText(id) {
+      const element = document.getElementById(id);
+      return element.options[element.selectedIndex].text;
+    }
+
+    function updatePrice(id) {
+      const price = getSelectedData(id, "price");
+      document.getElementById(id + "Price").innerText = "$" + price;
+    }
+
+    function updateBuild() {
+      const ids = ["cpu", "cooler", "motherboard", "ram", "storage", "gpu", "casePart", "psu", "os"];
+
+      let total = 0;
+      let wattage = 0;
+
+      ids.forEach(id => {
+        total += getSelectedData(id, "price");
+        wattage += getSelectedData(id, "watts");
+        updatePrice(id);
+      });
+
+      const cpuPlatform = document.getElementById("cpu").value;
+      const motherboardPlatform = document.getElementById("motherboard").value;
+      const psuCapacity = getSelectedData("psu", "watts");
+
+      const compatibility = document.getElementById("compatibility");
+
+      if (cpuPlatform !== motherboardPlatform) {
+        compatibility.innerHTML = "❌ Compatibility Issue: CPU and motherboard platform do not match.";
+        compatibility.className = "status-bad";
+      } else if (psuCapacity < wattage + 150) {
+        compatibility.innerHTML = "⚠️ Warning: Power supply may be too low for this build.";
+        compatibility.className = "status-bad";
+      } else {
+        compatibility.innerHTML = "✅ Compatibility: No major issues detected.";
+        compatibility.className = "status-good";
+      }
+
+      let tier = "Starter Build";
+      if (total >= 1500 && total < 2500) {
+        tier = "Pro Build";
+      } else if (total >= 2500) {
+        tier = "Streamer / Enthusiast Build";
+      }
+
+      document.getElementById("total").innerText = total;
+      document.getElementById("watts").innerText = wattage;
+      document.getElementById("tier").innerText = tier;
+    }
+
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "student" && password === "student") {
+        loggedIn = true;
+        document.getElementById("loginMsg").innerHTML = "✅ Login successful!";
+      } else {
+        document.getElementById("loginMsg").innerHTML = "❌ Incorrect username or password.";
+      }
+    }
+
+    function saveBuild() {
+      if (!loggedIn) {
+        document.getElementById("saveMsg").innerHTML = "Please login first using student/student.";
+        return;
+      }
+
+      const build = {
+        cpu: getSelectedText("cpu"),
+        cooler: getSelectedText("cooler"),
+        motherboard: getSelectedText("motherboard"),
+        ram: getSelectedText("ram"),
+        storage: getSelectedText("storage"),
+        gpu: getSelectedText("gpu"),
+        casePart: getSelectedText("casePart"),
+        psu: getSelectedText("psu"),
+        os: getSelectedText("os"),
+        total: document.getElementById("total").innerText,
+        watts: document.getElementById("watts").innerText,
+        tier: document.getElementById("tier").innerText
+      };
+
+      localStorage.setItem("eliteGamingSavedBuild", JSON.stringify(build));
+      document.getElementById("saveMsg").innerHTML = "✅ Build saved successfully!";
+    }
+
+    function loadSavedBuild() {
+      const saved = localStorage.getItem("eliteGamingSavedBuild");
+      const box = document.getElementById("savedBuildBox");
+
+      if (!saved) {
+        box.innerHTML = "<p>No saved build yet. Login and save a build from the Builder page.</p>";
+        return;
+      }
+
+      const build = JSON.parse(saved);
+
+      box.innerHTML = `
+        <h3>Your Saved Build</h3>
+        <p><strong>CPU:</strong> ${build.cpu}</p>
+        <p><strong>CPU Cooler:</strong> ${build.cooler}</p>
+        <p><strong>Motherboard:</strong> ${build.motherboard}</p>
+        <p><strong>Memory:</strong> ${build.ram}</p>
+        <p><strong>Storage:</strong> ${build.storage}</p>
+        <p><strong>Video Card:</strong> ${build.gpu}</p>
+        <p><strong>Case:</strong> ${build.casePart}</p>
+        <p><strong>Power Supply:</strong> ${build.psu}</p>
+        <p><strong>Operating System:</strong> ${build.os}</p>
+        <h3>Total: $${build.total}</h3>
+        <h3>Estimated Wattage: ${build.watts}W</h3>
+        <h3>Recommended Tier: ${build.tier}</h3>
+      `;
+    }
+
+    function clearBuild() {
+      localStorage.removeItem("eliteGamingSavedBuild");
+      document.getElementById("saveMsg").innerHTML = "Saved build cleared.";
+    }
+
+    updateBuild();
+  </script>
 
 </body>
 </html>
